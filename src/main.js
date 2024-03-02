@@ -23,7 +23,14 @@ function loadData() {
         keys.forEach(key => {
           const cell = document.createElement('div');
           cell.className = 'table-cell';
-          cell.textContent = item[key];
+          tempVal = item[key];
+          if(tempVal == "Yes") {
+            cell.textContent = "<style background-color='green'>" + item[key]+"</style>";
+          }
+          else {
+            cell.textContent = item[key];
+          }
+
           row.appendChild(cell);
         });
         tableBody.appendChild(row);
