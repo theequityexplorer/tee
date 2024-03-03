@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Equity Explorer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Data</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- <script src="src/main.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="src/main.css">
+</head>
+<body>
+  <script>
+  $(document).ready(function() {
+    // Load data from JSON file
+    $.getJSON('CandlePattern.json', function(data) {
+      // Create HTML structure with data
+      var sectionWrapper = $('<section class="wrapper"></section>');
+      var mainTitle = $('<main class="row title"><ul></ul></main>');
+      var sectionFadeInWrapper = $('<section class="row-fadeIn-wrapper"></section>');
 
-    <!-- Include jQuery -->
-    <script src="src/jquery-3.6.0.min.js"></script>
-    <script src="src/jquery-ztables.js"></script>
-    <script src="src/main.js"></script>
+      // Populate mainTitle with keys
+      var firstData = data[0];
+      $.each(firstData, function(key) {
+        mainTitle.find('ul').append('<li>' + key + '</li>');
+      });
 
-    <!-- Include jQuery DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="src/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&subset=cyrillic' rel='stylesheet' type='text/css' />
+      // Populate sectionFadeInWrapper with values
+      $.each(data, function(_, obj) {
+        var articleFadeIn = $('<article class="row fadeIn nfl"><ul></ul></article>');
+        $.each(obj, function(key, value) {
+            if (key === "Stock") {
+                value = value.replace("NSE:", "").replace("-EQ", "");
+            }
+            articleFadeIn.find('ul').append('<li>' + value + '</li>');
+        });
+        sectionFadeInWrapper.append(articleFadeIn);
+      });
 
-    </head>
-    <body">
-        <div class="table-container">
-            <div id="table-header" class="table-row header-row">
-                <!-- Column headers will be populated dynamically here -->
-            </div>
-            <div id="table-body" class="table-body">
-                <!-- Data will be populated dynamically here -->
-            </div>
-        </div>
-    </body>
+      // Append elements to sectionWrapper
+      sectionWrapper.append("<h4 style='padding-left:10px'>Timeframe: 5 minutes</h4>")
+      sectionWrapper.append(mainTitle);
+      sectionWrapper.append(sectionFadeInWrapper);
+
+
+      // Append sectionWrapper to body
+      $('body').append(sectionWrapper);
+    });
+  });
+</script>
+</body>
 </html>
