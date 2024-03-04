@@ -97,11 +97,13 @@
    <body>
     <div class="topContainer">
         <h1 class="h1Cls">The Equity Explorer</h1>
-        <div style="float: left;">
-            <h4 style="line-height: 50px;">Timeframe : 5 minutes | Last Data Fetched : 3:30 PM</h4>
-        </div>
-        <div style="float:right;">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for stock..">     
+        <div class="tablecontrol" style="width: 100%;line-height: 45px;">
+            <div style="float:left;">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for stock..">     
+            </div>
+            <div style="float: right;">
+                <h4 style="line-height: 50px;">Timeframe : 5 minutes | Last Data Fetched : 3:30 PM</h4>
+            </div>
         </div>
     </div>
     <div id="tableHolder" class="tableHolder"></div>
