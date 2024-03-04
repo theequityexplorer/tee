@@ -73,7 +73,7 @@ body {
   font-weight: normal;
   list-style: none;
   display: inline-block;
-  width: 10%;
+  width: 8%;
   box-sizing: border-box;
 }
 @media only screen and (max-width: 767px) and (min-width: 480px) {
