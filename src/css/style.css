@@ -26,6 +26,21 @@ body {
     overflow: auto;
 }
 
+input {
+      padding: 10px;
+      letter-spacing: .8px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: .5px solid dimgrey;
+      
+}
+
+input:focus {
+
+      outline: none;
+}
+
+
 #page {
   padding: 50px 100px;
 }
@@ -116,7 +131,7 @@ p.credits {
 
 
 .topContainer {
-  height: 10%;
+/*  height: 10%;*/
 }
 
 .tableHolder {

@@ -7,6 +7,7 @@
       <link rel="stylesheet" type="text/css" href="src/css/basictable.css" />
       <script type="text/javascript" src="src/js/jquery.min.js"></script>
       <script type="text/javascript" src="src/js/basictable.js"></script>
+      
       <script type="text/javascript">
          $(document).ready(function() {
          // Load data from JSON file
@@ -67,14 +68,42 @@
          new basictable('#table-two-axis');
          
            });
-         });
+
+        });
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("table-two-axis");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+
       </script>
    </head>
    <body>
     <div class="topContainer">
         <h1 class="h1Cls">The Equity Explorer</h1>
-        <h4 style="line-height: 50px;">Timeframe : 5 minutes | Last Data Fetched : 3:30 PM</h4>
+        <div style="float: left;">
+            <h4 style="line-height: 50px;">Timeframe : 5 minutes | Last Data Fetched : 3:30 PM</h4>
+        </div>
+        <div style="float:right;">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for stock..">     
+        </div>
     </div>
-      <div id="tableHolder" class="tableHolder"></div>
+    <div id="tableHolder" class="tableHolder"></div>
    </body>
 </html>
