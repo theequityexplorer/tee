@@ -20,7 +20,7 @@ class basictable {
             ...options
         };
         if (this.options.breakpoint === null && this.options.containerBreakpoint === null) {
-            this.options.breakpoint = 1000
+            this.options.breakpoint = 1100
         }
         this._getTables();
         this._setup()

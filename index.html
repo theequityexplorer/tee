@@ -40,16 +40,16 @@
                  row.appendTo(tableData.find('tbody'));
              });
              // Append tableData to the body
-             tableData.appendTo("body");
+             tableData.appendTo("#tableHolder");
          
              const table = new basictable('.table');
          
          new basictable('#table-breakpoint', {
-         breakpoint: 1000,
+         breakpoint: 1100,
          });
          
          new basictable('#table-container-breakpoint', {
-         containerBreakpoint: 1000,
+         containerBreakpoint: 1100,
          });
          
          new basictable('#table-force-off', {
@@ -71,7 +71,10 @@
       </script>
    </head>
    <body>
-      <h1 class="h1Cls">The Equity Explorer</h1>
-      <h4>Timeframe : 5 minutes</h4>
+    <div class="topContainer">
+        <h1 class="h1Cls">The Equity Explorer</h1>
+        <h4 style="line-height: 50px;">Timeframe : 5 minutes | Last Data Fetched : 3:30 PM</h4>
+    </div>
+      <div id="tableHolder" class="tableHolder"></div>
    </body>
 </html>
