@@ -1,0 +1,287 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"word",
+				"word-spacing"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"sr",
+				"src"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"npm install ",
+				"npm: Install Package"
+			],
+			[
+				"npm",
+				"npm: Run Script"
+			],
+			[
+				"pkgctlinspkg",
+				"Package Control: Install Package"
+			],
+			[
+				"pkgct",
+				"Install Package Control"
+			],
+			[
+				"plugi",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"htmnl",
+				"Set Syntax: HTML (Erlang)"
+			],
+			[
+				"typesc",
+				"Set Syntax: TypeScript"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/PycharmProjects/__UI"
+	],
+	"file_history":
+	[
+		"/C/PycharmProjects/__UI-V1/jquery.html",
+		"/C/PycharmProjects/__UI/basictable-master/src/css/basictable.css",
+		"/C/PycharmProjects/__UI/basictable-master/src/js/jquery.basictable.js",
+		"/C/PycharmProjects/__UI/basictable-master/demo/css/style.css",
+		"/C/PycharmProjects/__UI/basictable-master/demo/jquery.html",
+		"/C/PycharmProjects/__UI-V1/CandlePattern.json",
+		"/C/PycharmProjects/__UI/basictable-master/src/js/basictable.js",
+		"/C/PycharmProjects/__UI/basictable-master/basictable-master/demo/css/style.css",
+		"/C/PycharmProjects/__UI/basictable-master/basictable-master/src/js/jquery.basictable.js",
+		"/C/PycharmProjects/__UI/basictable-master/basictable-master/src/js/basictable.js",
+		"/C/PycharmProjects/__UI/basictable-master/basictable-master/demo/jquery.html",
+		"/C/PycharmProjects/__UI/src/DataTable.js",
+		"/C/PycharmProjects/__UI/src/dataTables.css",
+		"/C/PycharmProjects/__UI/src/main.js",
+		"/C/PycharmProjects/__UI/index.html",
+		"/C/PycharmProjects/__UI/src/main.css",
+		"/C/PycharmProjects/__UI/src/DataTables.js",
+		"/C/PycharmProjects/tee/CandlePattern.json",
+		"/C/PycharmProjects/tee/src/main.css",
+		"/C/PycharmProjects/tee/index.html",
+		"/C/PycharmProjects/TheEquityExplorer_Notional/data/stocksScrapping.json",
+		"/C/PycharmProjects/TheEquityExplorer_Notional/data/entryLevels.json",
+		"/C/PycharmProjects/token.json",
+		"/C/PycharmProjects/__UI/CandlePattern.json",
+		"/C/PycharmProjects/CandlePattern.json",
+		"/C/PycharmProjects/tee/src/main.js",
+		"/C/PycharmProjects/__UI/src/jquery-ztables.js",
+		"/C/PycharmProjects/__UI/src/bootstrap-table.min.css",
+		"/C/PycharmProjects/__UI/main.html",
+		"/C/PycharmProjects/__UI/package.json",
+		"/C/Users/Jitendra/AppData/Roaming/Sublime Text/Packages/User/ts.sublime-build",
+		"/C/PycharmProjects/__UI/app.component.ts",
+		"/C/Users/Jitendra/Documents/Trading/fo_mktlots.csv",
+		"/C/PycharmProjects/The Equity Explores/data/stocks.txt",
+		"/C/PycharmProjects/The Equity Explores/data/stocksData.json",
+		"/C/PycharmProjects/keys.json",
+		"/C/PycharmProjects/The Equity Explores - FUTnOPT/data/stocks.txt",
+		"/C/Users/Jitendra/Documents/Trading/- Fin Nifty Near Month Expiry.txt",
+		"/C/PycharmProjects/Stocks-1200",
+		"/C/PycharmProjects/keys.json.txt",
+		"/C/PycharmProjects/HighBetaStocks.txt",
+		"/C/Users/Jitendra/Documents/Trading/stocksForFyersImport.txt",
+		"/C/PycharmProjects/TelegramAutoResponder/data/entryLevels.json"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\PycharmProjects\\__UI"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 456.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.textarea":
+	{
+		"height": 419.0
+	},
+	"pinned_build_system": "Packages/User/ts.sublime-build",
+	"project": "",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 389.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

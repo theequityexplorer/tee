@@ -1,53 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-
-  <title>The Equity Explorer</title>
-  <script src="src/jquery-3.6.0.min.js"></script>
-  <!-- <script src="src/main.js"></script> -->
-  <link rel="stylesheet" type="text/css" href="src/main.css">
-</head>
-<body>
-  <script>
-  $(document).ready(function() {
-    // Load data from JSON file
-    $.getJSON('CandlePattern.json', function(data) {
-      // Create HTML structure with data
-      var sectionWrapper = $('<section class="wrapper"></section>');
-      var mainTitle = $('<main class="row title"><ul></ul></main>');
-      var sectionFadeInWrapper = $('<section class="row-fadeIn-wrapper"></section>');
-
-      // Populate mainTitle with keys
-      var firstData = data[0];
-      $.each(firstData, function(key) {
-        mainTitle.find('ul').append('<li>' + key + '</li>');
-      });
-
-      // Populate sectionFadeInWrapper with values
-      $.each(data, function(_, obj) {
-        var articleFadeIn = $('<article class="row fadeIn nfl"><ul></ul></article>');
-        $.each(obj, function(key, value) {
-            if (key === "Stock") {
-                value = value.replace("NSE:", "").replace("-EQ", "");
-            }
-            articleFadeIn.find('ul').append('<li>' + value + '</li>');
-        });
-        sectionFadeInWrapper.append(articleFadeIn);
-      });
-
-      // Append elements to sectionWrapper
-      sectionWrapper.append("<h4 style='padding-left:10px'>Timeframe: 5 minutes</h4>")
-      sectionWrapper.append(mainTitle);
-      sectionWrapper.append(sectionFadeInWrapper);
-
-
-      // Append sectionWrapper to body
-      $('body').append(sectionWrapper);
-    });
-  });
-</script>
-</body>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+      <title>The Equity Explorer</title>
+      <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+      <link rel="stylesheet" type="text/css" href="src/css/basictable.css" />
+      <script type="text/javascript" src="src/js/jquery.min.js"></script>
+      <script type="text/javascript" src="src/js/basictable.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+         // Load data from JSON file
+         $.getJSON("CandlePattern.json", function(data) {
+             // Create table element
+             var tableData = $("<table id='table-two-axis' class='two-axis'>");
+         
+             // Create thead element
+             var thead = $("<thead>");
+             thead.appendTo(tableData);
+         
+             // Create header row dynamically based on keys in the first object
+             var headerRow = $("<tr>");
+             for (var key in data[0]) {
+                 $("<th>").text(key).appendTo(headerRow);
+             }
+             headerRow.appendTo(thead);
+         
+         
+             // Create thead element
+             var tbody = $("<tbody>");
+             tbody.appendTo(tableData);
+         
+             // Create data rows dynamically
+             $.each(data, function(_, item) {
+                 var row = $("<tr>");
+                 $.each(item, function(_, value) {
+                     var cell = $("<td>").text(value);
+                     cell.appendTo(row);
+                 });
+                 row.appendTo(tableData.find('tbody'));
+             });
+             // Append tableData to the body
+             tableData.appendTo("body");
+         
+             const table = new basictable('.table');
+         
+         new basictable('#table-breakpoint', {
+         breakpoint: 1000,
+         });
+         
+         new basictable('#table-container-breakpoint', {
+         containerBreakpoint: 1000,
+         });
+         
+         new basictable('#table-force-off', {
+         forceResponsive: false,
+         });
+         
+         new basictable('#table-max-height', {
+         tableWrap: true
+         });
+         
+         new basictable('#table-no-resize', {
+         noResize: true,
+         });
+         
+         new basictable('#table-two-axis');
+         
+           });
+         });
+      </script>
+   </head>
+   <body>
+      </script>
+   </body>
 </html>
