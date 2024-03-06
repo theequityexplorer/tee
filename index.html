@@ -35,7 +35,20 @@
              $.each(data, function(_, item) {
                  var row = $("<tr>");
                  $.each(item, function(_, value) {
-                     var cell = $("<td>").text(value);
+                    var cell = $("<td>").text(value);
+                    var value = value.toString()
+                    if(value.toUpperCase() == "NUTRAL") {
+                        cell = $("<td>").text(value);
+                        // console.log(value + " = converted to Nutral")
+                    }
+                    else if(value.toUpperCase() == "BULLISH") {
+                        cell = $("<td class='bullish'>").text(value);
+                        // console.log(value + " = converted to Bullish")
+                    }
+                    else if(value.toUpperCase() == "BEARISH") {
+                        cell = $("<td class='bearish'>").text(value);
+                        // console.log("< 0, converted to Bearish")
+                    }
                      cell.appendTo(row);
                  });
                  row.appendTo(tableData.find('tbody'));
@@ -102,7 +115,7 @@
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for stock..">     
             </div>
             <div style="float: right;">
-                <h4 style="line-height: 50px;">Timeframe : 15 minutes</h4>
+                <h4 style="line-height: 50px;">Laste Updated on: 6-Mar-2024&nbsp;&nbsp;|&nbsp;&nbsp;Timeframe : Daily</h4>
             </div>
         </div>
     </div>

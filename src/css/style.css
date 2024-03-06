@@ -137,6 +137,16 @@ p.credits {
   height: 80%;
 }
 
+.bullish {
+  color: #fff;
+  background-color: #0a530a;
+}
+
+.bearish {
+  color: #fff;
+  background-color: #8b0606;
+}
+
 table {
   background: white;
   border-collapse: collapse;
@@ -187,9 +197,9 @@ table tr td {
   color: #3f3f3f;
 }
 
-table tr:nth-of-type(2n+2) td {
+/*table tr:nth-of-type(2n+2) td {
   background: #ffffff;
-}
+}*/
 
 table.bt tfoot th,
 table.bt tfoot td,
