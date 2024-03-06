@@ -35,8 +35,11 @@
              $.each(data, function(_, item) {
                  var row = $("<tr>");
                  $.each(item, function(_, value) {
+                    val = String(value)
+                    var cleanedStr = val.replace("-EQ", "");
+                    var value = cleanedStr
                     var cell = $("<td>").text(value);
-                    var value = value.toString()
+
                     if(value.toUpperCase() == "NUTRAL") {
                         cell = $("<td>").text(value);
                         // console.log(value + " = converted to Nutral")
