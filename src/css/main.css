@@ -1,0 +1,24 @@
+/* CSS for table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px; /* Add spacing within cells */
+    border: 1px solid #ddd; /* Add border */
+}
+
+.data-table th:first-child,
+.data-table td:first-child {
+    width: 500px; /* Set width for first column */
+}
+
+.data-table th {
+    background-color: #f2f2f2; /* Set background color for header row */
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Set background color for even rows */
+}

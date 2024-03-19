@@ -1,0 +1,26 @@
+[
+    {
+        "Stock": "NSE:AARTIIND-EQ",
+        "Open": 644.95,
+        "High": 646.35,
+        "Low": 632.3,
+        "Close": 637.95,
+        "RSI": 45.11,
+        "EMA5": 641.08,
+        "EMA10": 646.2,
+        "EMA20": 652.59,
+        "EMA50": 643.89,
+        "EMA100": 613.09,
+        "EMA200": 568.1,
+        "Open_EQ_High": "No",
+        "Open_EQ_Low": "No",
+        "Past_20_Days_High": 712.0,
+        "Past_20_Days_Low": 606.55,
+        "Open_Previous_Contrat_Start": 665.35,
+        "Close_Previous_Contrat_End": 645.9,
+        "Darvas_Box_Entry_Price": 667.0,
+        "Darvas_Box_SL_Price": 606.55,
+        "Weekly_Return_Percentage": -9.06,
+        "Yearly_Return_Percentage": 22.21
+    }
+]

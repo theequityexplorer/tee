@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="src/css/main.css">
+<title>Layout with Banner</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Set body height to viewport height */
+        overflow: hidden; /* Prevent body scrollbar */
+        display: flex;
+        flex-direction: column;
+    }
+    #banner {
+        height: 100px;
+        width: 100%;
+        background-color: #333; /* Example background color */
+    }
+    #left-div, #right-div {
+        max-height: calc(100vh - 100px); /* Set max height to viewport height minus banner height */
+        overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    }
+    #left-div {
+        width: 200px; /* Set max width of left div */
+        float: left;
+        flex: 0 0 auto; /* Don't grow or shrink */
+        background-color: #ccc; /* Example background color */
+        margin-right: 10px; /* Add margin between left and right div */
+    }
+    #right-div {
+        flex: 1; /* Take remaining space */
+        background-color: #eee; /* Example background color */
+        height: 100%;
+        padding: 0 10px;
+    }
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        line-height: 50px;
+        padding-left: 10px;
+        list-style-type: none;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    dt {
+      font-weight: bold;
+    }
+
+    dl,
+    dd {
+      font-size: 0.9rem;
+    }
+
+    dd {
+      margin-bottom: 1em;
+    }
+</style>
+</head>
+<body>
+    <div id="banner"></div>
+    <div id="container">
+        <div id="left-div">
+            <input type="text" id="search-input" placeholder="Search items...">
+            <ul id="item-list"></ul>
+        </div>
+        <div id="right-div">
+            <h2>Table Holder</h2>
+            <div id="tableHolder"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch and display items from the text file
+        function fetchItems() {
+            fetch('data/stocks.txt')
+            .then(response => response.text())
+            .then(data => {
+                const itemList = document.getElementById('item-list');
+                itemList.innerHTML = ''; // Clear existing items
+                data.split('\n').forEach(item => {
+                    if (item.trim() !== '') {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.textContent = item.trim();
+                        a.href = '#'; // Make it a clickable link
+                        a.onclick = function() {
+                            // Call your function and pass li text as parameter
+                            handleClick(item.trim());
+                        };
+                        li.appendChild(a);
+                        itemList.appendChild(li);
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching items:', error));
+        }
+
+        // Function to handle input event
+        function handleInput() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const itemList = document.getElementById('item-list');
+            const items = itemList.getElementsByTagName('li');
+            for (let item of items) {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchInput)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        }
+
+        // Function to handle click event
+        function handleClick(itemName) {
+            // Load JSON file from the data folder
+            fetch(`data/${itemName}.json`)
+            .then(response => response.json())
+            .then(data => {
+                // Display key-value pairs in the right div
+                const rightDiv = document.getElementById('tableHolder');
+                rightDiv.innerHTML = ''; // Clear existing content
+                const table = document.createElement('table');
+                table.classList.add('data-table'); // Add a class for styling
+                
+                // Split data into two groups: keys with Darvas_Box_SL_Price or Darvas_Box_Entry_Price and rest
+                const keys = Object.keys(data[0]);
+                const firstColumnKeys = keys.filter(key => key === "Darvas_Box_SL_Price" || key === "Darvas_Box_Entry_Price");
+                const secondColumnKeys = keys.filter(key => !firstColumnKeys.includes(key));
+                
+                // Create the first column for Darvas_Box_SL_Price or Darvas_Box_Entry_Price
+                for (let i = 0; i < firstColumnKeys.length; i++) {
+                    const key = firstColumnKeys[i];
+                    const value = data[0][key];
+                    const row = table.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    cell1.textContent = key;
+                    if (key === "Darvas_Box_SL_Price" || key === "Darvas_Box_Entry_Price") {
+                        const button = document.createElement('button');
+                        button.textContent = value;
+                        button.dataset.key = key;
+                        button.classList.add('add-alert-button');
+                        cell2.appendChild(document.createTextNode(value));
+                        cell2.appendChild(button);
+                        button.addEventListener('click', handleButtonClick);
+                    } else {
+                        cell2.textContent = value;
+                    }
+                }
+                
+                // Create the second column for the rest of the key-value pairs
+                for (let i = 0; i < secondColumnKeys.length; i++) {
+                    const key = secondColumnKeys[i];
+                    const value = data[0][key];
+                    const row = table.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    cell1.textContent = key;
+                    cell2.textContent = value;
+                }
+                
+                rightDiv.appendChild(table);
+            })
+            .catch(error => console.error('Error loading JSON file:', error));
+        }
+
+        // Function to handle button click
+        function handleButtonClick(event) {
+            const key = event.target.dataset.key;
+            const message = 'Alert: Button clicked for key - ${key}';
+
+            // Telegram API endpoint
+            const apiUrl = 'https://api.telegram.org/6985950944:AAHUpyXwwBmWKwA2ns_erPmKf7XY9KsBVN4/sendMessage';
+
+            // Telegram Bot API parameters
+            const params = {
+                chat_id: '-1002002202135', // Chat ID where you want to send the message
+                text: message
+            };
+
+            // Send HTTP POST request to Telegram Bot API
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send message');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Message sent:', data);
+                // Handle success if needed
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                // Handle error if needed
+            });
+        }
+
+
+        // Call the fetchItems function when the page loads
+        window.onload = fetchItems;
+
+        // Add event listener to the search input
+        document.getElementById('search-input').addEventListener('input', handleInput);
+    </script>
+</body>
+</html>
